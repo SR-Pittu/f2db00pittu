@@ -79,6 +79,24 @@ app.use(function(err, req, res, next) {
         if(err) return console.error(err);
         console.log("First object saved")
       });
+      let instance2 = new
+      university({
+        University_Name:"NorthWest Missouri State University", University_Location:'Maryville',
+        Number_of_Courses_Offered:258
+      });
+      instance2.save( function(err,doc) {
+          if(err) return console.error(err);
+          console.log("Second object saved")
+        });
+        let instance3 = new
+        university({
+          University_Name:"UMKC", University_Location:'Kansas',
+          Number_of_Courses_Offered:240
+        });
+        instance3.save( function(err,doc) {
+            if(err) return console.error(err);
+            console.log("Third object saved")
+          });
   }
   let reseed = true;
   if (reseed) { recreateDB();}
