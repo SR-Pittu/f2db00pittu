@@ -1,18 +1,20 @@
 extends layout
 
 block content
-  h1= title
-    - let universities = results
+   - let zoos = [{Name_of_the_Zoo:"Satya zoo",Location_of_the_Zoo:"Hyderabad",Number_of_animals_available_in_the_Zoo:"2000"},{Name_of_the_Zoo:"Rakesh zoo",Location_of_the_Zoo:"Bangalore",Number_of_animals_available_in_the_Zoo:"1000"},{Name_of_the_Zoo:"Manoj zoo",Location_of_the_Zoo:"Chennai",Number_of_animals_available_in_the_Zoo:"1500"}]
+    //- let zoos = 
     div(class="container-fluid")
-      button.btn( class="btn-warning ml-1", onclick= destination) Create
+      button.btn( class="btn-primary ml-1", onclick= destination) Create
     div(class="row m-1")
-      each university,index in universities
-       - let destination = `dispatch(\"/universities/update?id=${university._id}\")`
-        div(class="col-sm-2 bg-success m-1 p-3" onclick=`buy(${index})`) #{university.University_Name} - #{university.University_Location} - #{university.Number_of_Courses_Offered}
-          button.btn( class="btn-success ml-1", onclick= destination) Update
-          button.btn( class="btn-danger ml-1", onclick= destination) Delete
-          button.btn( class="btn-success ml-1", onclick= destination) Details
+      each zoo,index in zoos
+       - let destination = `dispatch(\"/zoos/update?id=${zoo._id}\")`
+          div(class="col-sm-2 bg-success m-1 p-3" onclick=`buy(${index})`) #{zoo.Name_of_the_Zoo} - #{zoo.Location_of_the_Zoo} - #{zoo.Number_of_animals_available_in_the_Zoo}
+            button.btn( class="btn-primary ml-1", onclick= destination) Update
+            button.btn( class="btn-danger ml-1", onclick= destination) Delete
+            button.btn( class="btn-success ml-1", onclick= destination) Details
+    
     script.
-      function dispatch(path){
+      functiondispatch(path){
         window.location.href=path
       }
+

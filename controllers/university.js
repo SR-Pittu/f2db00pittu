@@ -1,13 +1,12 @@
 var university = require('../models/university');
 // List of all university
-exports.university_list = async function(req, res) {
-    try{
-    theUniversities = await university.find();
-    res.send(theUniversities);
-    }
-    catch(err){
-    res.status(500);
-    res.send(`{"error": ${err}}`);
+exports.university_list = async function (req, res) {
+    try {
+        theUniversities = await university.find();
+        res.send(theUniversities);
+    } catch (err) {
+        res.status(500);
+        res.send(`{"error": ${err}}`);
     }
 };
 exports.university_detail = async function (req, res) {
@@ -31,8 +30,7 @@ exports.university_create_post = async function (req, res) {
     try {
         let result = await document.save();
         res.send(result);
-    }
-    catch (err) {
+    } catch (err) {
         res.status(500);
         res.send(`{"error": ${err}}`);
     }
@@ -75,9 +73,11 @@ exports.university_update_put = async function (req, res) {
 exports.university_view_all_Page = async function (req, res) {
     try {
         thezoos = await university.find();
-        res.render('universiy', { title: 'university Search Results', results: theUniversities });
-    }
-    catch (err) {
+        res.render('universiy', {
+            title: 'university Search Results',
+            results: theUniversities
+        });
+    } catch (err) {
         res.status(500);
         res.send(`{"error": ${err}}`);
     }
@@ -88,10 +88,11 @@ exports.university_view_one_Page = async function (req, res) {
     console.log("single view for id " + req.query.id)
     try {
         result = await university.findById(req.query.id)
-        res.render('universitydetail',
-            { title: 'university Detail', toShow: result });
-    }
-    catch (err) {
+        res.render('universitydetail', {
+            title: 'university Detail',
+            toShow: result
+        });
+    } catch (err) {
         res.status(500)
         res.send(`{'error': '${err}'}`);
     }
@@ -100,12 +101,13 @@ exports.university_view_one_Page = async function (req, res) {
 // Handle building the view for creating a zoo.
 // No body, no in path parameter, no query.
 // Does not need to be async
-exports.university_create_Page =  function(req, res) {
+exports.university_create_Page = function (req, res) {
     console.log("create view")
-    try{
-        res.render('universitycreate', { title: 'University Create'});
-    }
-    catch(err){
+    try {
+        res.render('universitycreate', {
+            title: 'University Create'
+        });
+    } catch (err) {
         res.status(500)
         res.send(`{'error': '${err}'}`);
     }
@@ -113,26 +115,30 @@ exports.university_create_Page =  function(req, res) {
 
 // Handle building the view for updating a zoo.
 // query provides the id
-exports.university_update_Page =  async function(req, res) {
-    console.log("update view for item "+req.query.id)
-    try{
+exports.university_update_Page = async function (req, res) {
+    console.log("update view for item " + req.query.id)
+    try {
         let result = await university.findById(req.query.id)
-        res.render('universityupdate', { title: 'University Update', toShow: result });
-    }
-    catch(err){
+        res.render('universityupdate', {
+            title: 'University Update',
+            toShow: result
+        });
+    } catch (err) {
         res.status(500)
         res.send(`{'error': '${err}'}`);
     }
 };
 
 // Handle a delete one view with id from query
-exports.university_delete_Page = async function(req, res) {
-    console.log("Delete view for id "  + req.query.id)
-    try{
+exports.university_delete_Page = async function (req, res) {
+    console.log("Delete view for id " + req.query.id)
+    try {
         result = await zoo.findById(req.query.id)
-        res.render('uinversitydelete', { title: 'University Delete', toShow: result });
-    }
-    catch(err){
+        res.render('uinversitydelete', {
+            title: 'University Delete',
+            toShow: result
+        });
+    } catch (err) {
         res.status(500)
         res.send(`{'error': '${err}'}`);
     }
