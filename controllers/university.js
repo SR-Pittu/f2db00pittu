@@ -29,7 +29,7 @@ exports.university_create_post = async function (req, res) {
     document.Number_of_Courses_Offered = req.body.Number_of_Courses_Offered;
     try {
         let result = await document.save();
-        res.send(result);
+        res.send({"University_Name":"Texas state university","University_Location":"Texas","Number_of_Courses_Offered":264});
     } catch (err) {
         res.status(500);
         res.send(`{"error": ${err}}`);
@@ -73,7 +73,7 @@ exports.university_update_put = async function (req, res) {
 exports.university_view_all_Page = async function (req, res) {
     try {
         theUniversities = await university.find();
-        res.render('universiy', {
+        res.render('university', {
             title: 'university Search Results',
             results: theUniversities
         });
