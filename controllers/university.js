@@ -72,7 +72,7 @@ exports.university_update_put = async function (req, res) {
 // Handle a show all view
 exports.university_view_all_Page = async function (req, res) {
     try {
-        thezoos = await university.find();
+        theUniversities = await university.find();
         res.render('universiy', {
             title: 'university Search Results',
             results: theUniversities
