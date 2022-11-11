@@ -29,7 +29,7 @@ exports.university_create_post = async function (req, res) {
     document.Number_of_Courses_Offered = req.body.Number_of_Courses_Offered;
     try {
         let result = await document.save();
-        res.send({"University_Name":"Texas state university","University_Location":"Texas","Number_of_Courses_Offered":264});
+        res.send(result);
     } catch (err) {
         res.status(500);
         res.send(`{"error": ${err}}`);
@@ -129,11 +129,23 @@ exports.university_update_Page = async function (req, res) {
     }
 };
 
+// for a specific Costume.
+exports.university_detail = async function(req, res) {
+    console.log("detail" + req.params.id)
+    try {
+    result = await university.findById( req.params.id)
+    res.send(result)
+    } catch (error) {
+    res.status(500)
+    res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+   }
+
 // Handle a delete one view with id from query
 exports.university_delete_Page = async function (req, res) {
     console.log("Delete view for id " + req.query.id)
     try {
-        result = await zoo.findById(req.query.id)
+        result = await university.findById(req.query.id)
         res.render('uinversitydelete', {
             title: 'University Delete',
             toShow: result
