@@ -4,7 +4,7 @@ block content
   h1= title
   
   - let universityid = toShow._id
-  - let universityname = toShow.university_Name
+  - let university_Name = toShow.University_Name
   - let UniversityLocation = toShow.University_Location
   - let no_ofcoursesOffered = toShow.Number_of_Courses_Offered
 
@@ -14,14 +14,14 @@ block content
     - let actionid = "/resource/universities/" + universityid
     form(id='universityForm', action= actionid, method="PUT")
       div.form-group
-        label.universityAttr(for='university_Name') university name
-        input#universityname(type='text' name='university_Name', value= university_Name )
+        label.universityAttr(for='University_Name') university name
+        input#university_Name(type='text' name='University_Name', value= University_Name )
       div.form-group
         label.universityAttr(for='University_Location') university location
-        input#UniversityLocation(type='text' name='University_Location', value= university_age )
+        input#UniversityLocation(type='text' name='University_Location', value= University_Location )
       div.form-group
         label.universityAttr(for='Number_of_Courses_Offered') No.of courses in university
-        input#no_ofcoursesOffered(type='number' name='Number_of_Courses_Offered', value= university_salary )
+        input#no_ofcoursesOffered(type='number' name='Number_of_Courses_Offered', value= Number_of_Courses_Offered )
       input(type="submit")
 
     script.
