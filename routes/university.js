@@ -5,5 +5,6 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', university.university_view_all_Page);
 router.get('/detail', university.university_view_one_Page);
+router.get('/create', university.university_create_Page);
 
 module.exports = router;
