@@ -3,6 +3,34 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+h1 {
+  color: gold;
+  background-color: whitesmoke;
+  text-align: center; 
+  font-family: cursive;
+  font-size:xx-large;
+}
+.hover{
+  background-color:thistle;
+  color: violet;
+}
+.i1{
+  background-color:bisque;
+  color:blueviolet;
+  text-align:justify;
+  text-justify: auto;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width:300px;
+}
+.universityAttr {
+  background-color:darkseagreen;
+  color:steelblue;
+  font-size: large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: italic;
+  width: 250px;
+ }
+
 a {
-  color: #00B7FF;
+  color:tomato;
 }

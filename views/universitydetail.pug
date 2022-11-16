@@ -1,20 +1,27 @@
 extends layout
 block content
     h1= title
-    - let universityid = toShow._id
-    - let university_Name = toShow.University_Name
-    - let UniversityLocation = toShow.University_Location
-    - let no_ofcoursesOffered = toShow.Number_of_Courses_Offered
-    div
-    div.row
-    div(class='universityAttr mr-3') university ID is:
-    div #{universityid}
-    div.row
-    div(class='universityAttr mr-3') university Name is:
-    div #{university_Name}
-    div.row
-    div(class='universityAttr mr-3') university location is:
-    div #{UniversityLocation}
-    div.row
-    div(class='universityAttr mr-3') No.of courses in university is:
-    div #{no_ofcoursesOffered}
+
+    if (toShow == null)
+        h2 No instance to get details
+    else
+        - let universityid = toShow._id
+        - let university_Name = toShow.University_Name
+        - let UniversityLocation = toShow.University_Location
+        - let no_ofcoursesOffered = toShow.Number_of_Courses_Offered
+        div
+        div.row
+            div(class='universityAttr mr-3') university ID is:
+            div(class="i1") #{universityid}
+        br
+        div.row
+            div(class='universityAttr mr-3') university Name is:
+            div(class="i1") #{university_Name}
+        br
+        div.row
+            div(class='universityAttr mr-3') university location is:
+            div(class="i1") #{UniversityLocation}
+        br
+        div.row
+            div(class='universityAttr mr-3') No.of courses in university is:
+            div(class="i1") #{no_ofcoursesOffered}

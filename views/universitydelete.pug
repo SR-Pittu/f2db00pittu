@@ -12,27 +12,32 @@ block content
         - let no_ofcoursesOffered = toShow.Number_of_Courses_Offered
         - let actionid = "/resource/universities/" + universityid
         script let actionid = "#{actionid}"
+        br
         div
             div.row
                 div(class='universityAttr mr-3') university ID is:
-                div #{universityid}
+                div(class="i1") #{universityid}
+            br
             div.row
                 div(class='universityAttr mr-3') university Name  is:
-                div #{universityname}
+                div(class="i1") #{universityname}
+            br
             div.row
                 div(class='universityAttr mr-3') university Location is:
-                div #{universityLocation}
+                div(class="i1") #{universityLocation}
+            br
             div.row
                 div(class='universityAttr mr-3') No.of courses in university is:
-                div #{no_ofcoursesOffered}
+                div(class="i1") #{no_ofcoursesOffered}
 
+        br
         button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
-        button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+        button(class="btn btn-warning m-2" onclick="cancel()") Cancel
 
     script.
         function cancel() {
             // Go back to the home page for the university collection
-            window.location.href='/resource/universitys'
+            window.location.href='/resource/universities'
         }
     script.
         function deleteOnid() {
@@ -44,7 +49,7 @@ block content
                 return resp.json(); // or resp.text() or whatever the server sends
             }).then((body) => {
                 alert("Delete succeded")
-                window.location.href='/resource/universitys'
+                window.location.href='/resource/universities'
                 // TODO handle body
             }).catch((error) => {
                 // TODO handle error
