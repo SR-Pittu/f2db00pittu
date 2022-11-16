@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  h1= title
+
+    - let universityid = toShow._id
+    - let universityname = toShow.university_Name
+    - let UniversityLocation = toShow.University_Location
+    - let no_ofcoursesOffered = toShow.Number_of_Courses_Offered
+
+    div.row(class='mb-2')
+      div.mr-1 ID is
+      div #{universityid}
+    - let actionid = "/resource/universities/" + universityid
+    form(id='universityForm', action= actionid, method="PUT")
+      div.form-group
+        label.universityAttr(for='university_Name') university name
+        input#universityname(type='text' name='university_Name', value= university_Name )
+      div.form-group
+        label.universityAttr(for='University_Location') university age
+        input#UniversityLocation(type='text' name='University_Location', value= university_age )
+      div.form-group
+        label.universityAttr(for='Number_of_Courses_Offered') university salary
+        input#no_ofcoursesOffered(type='number' name='Number_of_Courses_Offered', value= university_salary )
+      input(type="submit")
+
+    script.
+      document.forms['universityForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+          method: 'PUT',
+          body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((resp) => {
+          return resp.json(); // or resp.text() or whatever the server sends
+        }).then((body) => {
+          alert("Update succeded")
+          // TODO handle body
+        }).catch((error) => {
+          // TODO handle error
+          alert("Update failed " + error )
+        });
+      });
