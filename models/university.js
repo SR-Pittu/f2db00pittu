@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const unversitySchema = mongoose.Schema({
-    University_Name:  {
+University_Name:  {
         type: String,
         required: [true, "Name required"]
     },
